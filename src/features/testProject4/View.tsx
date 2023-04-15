@@ -1,4 +1,11 @@
-import {View, Text, TextInput, FlatList, Pressable} from 'react-native';
+import {
+  View,
+  Text,
+  TextInput,
+  FlatList,
+  Pressable,
+  StyleSheet,
+} from 'react-native';
 import React, {useState} from 'react';
 import Snackbar from 'react-native-snackbar';
 import {CurrencyByRs} from './data';
@@ -45,23 +52,27 @@ const Index = () => {
       />
       {resultValue && <Text>{resultValue}</Text>}
       <View>
-        {/* <FlatList
+        <FlatList
           numColumns={3}
           data={CurrencyByRs}
           keyExtractor={item => item.name}
           renderItem={({item}) => (
             <Pressable
-              style={[
-                targetCurrency === item.name && {backgroundColor: '#487'},
-              ]}
+              style={targetCurrency === item.name && style.bg}
               onPress={() => btnPressed(item)}>
               <CurrencyButton {...item} />
             </Pressable>
           )}
-        /> */}
+        />
       </View>
     </View>
   );
 };
+
+const style = StyleSheet.create({
+  bg: {
+    backgroundColor: '#487',
+  },
+});
 
 export default Index;

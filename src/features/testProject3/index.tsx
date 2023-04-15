@@ -7,7 +7,7 @@ import {
   Image,
   ImageSourcePropType,
   Pressable,
-  TouchableOpacity,
+  Platform,
 } from 'react-native';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 
@@ -24,9 +24,14 @@ type DiceProps = PropsWithChildren<{
 }>;
 
 const options = {
-  enableVibrateFallback: true,
-  ignoreAndroidSystemSettings: false,
+  enableVibrateFallback: false,
+  ignoreAndroidSystemSettings: true,
 };
+
+const hapticTriggerType = Platform.select({
+  ios: 'selection',
+  android: 'impactMedium',
+});
 
 const Dice = ({imageUrl}: DiceProps): JSX.Element => {
   return (
@@ -72,7 +77,9 @@ function App(): JSX.Element {
   };
 
   const test = () => {
-    ReactNativeHapticFeedback.trigger('impactLight', options);
+    console.log('test');
+
+    ReactNativeHapticFeedback.trigger(hapticTriggerType, options);
   };
 
   return (
@@ -81,9 +88,9 @@ function App(): JSX.Element {
       <Pressable onPress={rollDiceOnTap}>
         <Text style={styles.rollDiceBtnText}>Roll the dice</Text>
       </Pressable>
-      <TouchableOpacity onPress={test}>
+      <Pressable onPress={test}>
         <Text style={styles.rollDiceBtnText}>Vibrate</Text>
-      </TouchableOpacity>
+      </Pressable>
     </View>
   );
 }
