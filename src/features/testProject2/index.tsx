@@ -2,6 +2,10 @@ import React from 'react';
 import Form from './components/Form';
 
 const index = () => {
-  return <Form />;
+  return (
+    <>
+      <Form />
+    </>
+  );
 };
 export default index;

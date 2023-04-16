@@ -40,31 +40,36 @@ const Index = () => {
     }
   };
 
+  const header = () => {
+    return (
+      <>
+        <TextInput
+          maxLength={12}
+          value={value}
+          clearButtonMode="always"
+          onChangeText={setvalue}
+          keyboardType="number-pad"
+          placeholder="enter amount to convert"
+        />
+        {resultValue && <Text>{resultValue}</Text>}
+      </>
+    );
+  };
   return (
     <View>
-      <TextInput
-        maxLength={12}
-        value={value}
-        clearButtonMode="always"
-        onChangeText={setvalue}
-        keyboardType="number-pad"
-        placeholder="enter amount to convert"
+      <FlatList
+        numColumns={3}
+        data={CurrencyByRs}
+        keyExtractor={item => item.name}
+        renderItem={({item}) => (
+          <Pressable
+            style={targetCurrency === item.name && style.bg}
+            onPress={() => btnPressed(item)}>
+            <CurrencyButton {...item} />
+          </Pressable>
+        )}
+        ListHeaderComponent={header}
       />
-      {resultValue && <Text>{resultValue}</Text>}
-      <View>
-        <FlatList
-          numColumns={3}
-          data={CurrencyByRs}
-          keyExtractor={item => item.name}
-          renderItem={({item}) => (
-            <Pressable
-              style={targetCurrency === item.name && style.bg}
-              onPress={() => btnPressed(item)}>
-              <CurrencyButton {...item} />
-            </Pressable>
-          )}
-        />
-      </View>
     </View>
   );
 };

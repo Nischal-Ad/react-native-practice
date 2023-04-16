@@ -83,15 +83,17 @@ function App(): JSX.Element {
   };
 
   return (
-    <View style={styles.container}>
-      <Dice imageUrl={diceImage} />
-      <Pressable onPress={rollDiceOnTap}>
-        <Text style={styles.rollDiceBtnText}>Roll the dice</Text>
-      </Pressable>
-      <Pressable onPress={test}>
-        <Text style={styles.rollDiceBtnText}>Vibrate</Text>
-      </Pressable>
-    </View>
+    <>
+      <View style={styles.container}>
+        <Dice imageUrl={diceImage} />
+        <Pressable onPress={rollDiceOnTap}>
+          <Text style={styles.rollDiceBtnText}>Roll the dice</Text>
+        </Pressable>
+        <Pressable onPress={test}>
+          <Text style={styles.rollDiceBtnText}>Vibrate</Text>
+        </Pressable>
+      </View>
+    </>
   );
 }
 
