@@ -7,6 +7,7 @@ import TestProject2 from './src/features/testProject2';
 import TestProject3 from './src/features/testProject3';
 import TestProject4 from './src/features/testProject4/View';
 import TestProject5 from './src/features/testProject5';
+import TestProject6 from './src/features/testProject6';
 
 const DATA = [
   <TestProject1 />,
@@ -14,6 +15,7 @@ const DATA = [
   <TestProject3 />,
   <TestProject4 />,
   <TestProject5 />,
+  <TestProject6 />,
 ];
 
 const App: React.FC = () => {

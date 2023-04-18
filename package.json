@@ -10,12 +10,14 @@
     "test": "jest"
   },
   "dependencies": {
+    "@react-native-community/slider": "^4.4.2",
     "formik": "^2.2.9",
     "react": "18.2.0",
     "react-native": "0.71.6",
     "react-native-bouncy-checkbox": "^3.0.7",
     "react-native-haptic-feedback": "^2.0.3",
     "react-native-snackbar": "^2.4.0",
+    "react-native-track-player": "^3.2.0",
     "react-native-vector-icons": "^9.2.0",
     "yup": "^1.0.2"
   },
